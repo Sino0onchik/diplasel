@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Профиль</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <header class="bg-slate-800 opacity-95 top-0 left-0 w-full">
+            <nav class="container mx-auto p-5 flex justify-between items-center">
+                <a href="./index.html" class="text-lg font-semibold text-white">Автосалон Люкс</a>
+                <div class="hidden md:flex space-x-4">
+                    <a href="#" class="text-white hover:text-gray-300 transition duration-300">Главная</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition duration-300">Автомобили</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition duration-300">Контакты</a>
+                    <span class="text-white hover:text-gray-300 transition duration-300">Баланс: 5999$</span>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white" aria-label="Open menu">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"/>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class="p-4">
+                <div class="flex justify-end gap-3">
+                    <button class="bg-emerald-700 flex p-2 hover:bg-emerald-500 transition rounded font-lg">
+                        <svg
+                            class="w-6 h-6 text-white"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 10 14"
+                        >
+                            <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 13V1m0 0L1 5m4-4 4 4"
+                            ></path>
+                        </svg>
+                        Поднять в рейтинге
+                    </button>
+                    <button class="bg-emerald-700 flex p-2 hover:bg-emerald-500 transition rounded font-lg">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-white"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/>
+                        </svg>
+                        Добавить товар
+                    </button>
+                    <button></button>
+                </div>
+            </section>
+            <section class="flex h-screen">
+                <button
+                    data-drawer-target="default-sidebar"
+                    data-drawer-toggle="default-sidebar"
+                    aria-controls="default-sidebar"
+                    type="button"
+                    class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                >
+                    <span class="sr-only">Open sidebar</span>
+                    <svg
+                        class="w-6 h-6"
+                        aria-hidden="true"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                    </svg>
+                </button>
+                <aside id="default-sidebar" class=" top-0 left-0 z-40 w-1/6	 h-full transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+                    <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+                        <ul class="space-y-2 font-medium">
+                            <li>
+                                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                    <span class="ms-3">Панель управления</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                    <span class="flex-1 ms-3 whitespace-nowrap">Продукция</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                    <span class="flex-1 ms-3 whitespace-nowrap">Заказы</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+                <section class="p-4 w-full">
+                    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+                        <div class="grid grid-cols-3 gap-4 mb-4">
+                            <div class="flex justify-between p-2 rounded bg-gray-200">
+                                <div class="w-2/5">
+                                    <ul>
+                                        <li class="text-xs text-gray-950">Кто заказал: Сергей</li>
+                                        <li class="text-xs text-gray-950">Что заказал: Iphone 24 pro max</li>
+                                        <li class="text-xs text-gray-950">Когда заказал: 12.04.2002</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-col gap-2 w-1/2">
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex justify-between p-2 rounded bg-gray-200">
+                                <div class="w-2/5">
+                                    <ul>
+                                        <li class="text-xs text-gray-950">Кто заказал: Сергей</li>
+                                        <li class="text-xs text-gray-950">Что заказал: Iphone 24 pro max</li>
+                                        <li class="text-xs text-gray-950">Когда заказал: 12.04.2002</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-col gap-2 w-1/2">
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex justify-between p-2 rounded bg-gray-200">
+                                <div class="w-2/5">
+                                    <ul>
+                                        <li class="text-xs text-gray-950">Кто заказал: Сергей</li>
+                                        <li class="text-xs text-gray-950">Что заказал: Iphone 24 pro max</li>
+                                        <li class="text-xs text-gray-950">Когда заказал: 12.04.2002</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-col gap-2 w-1/2">
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex justify-between p-2 rounded bg-gray-200">
+                                <div class="w-2/5">
+                                    <ul>
+                                        <li class="text-xs text-gray-950">Кто заказал: Сергей</li>
+                                        <li class="text-xs text-gray-950">Что заказал: Iphone 24 pro max</li>
+                                        <li class="text-xs text-gray-950">Когда заказал: 12.04.2002</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-col gap-2 w-1/2">
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex justify-between p-2 rounded bg-gray-200">
+                                <div class="w-2/5">
+                                    <ul>
+                                        <li class="text-xs text-gray-950">Кто заказал: Сергей</li>
+                                        <li class="text-xs text-gray-950">Что заказал: Iphone 24 pro max</li>
+                                        <li class="text-xs text-gray-950">Когда заказал: 12.04.2002</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-col gap-2 w-1/2">
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex justify-between p-2 rounded bg-gray-200">
+                                <div class="w-2/5">
+                                    <ul>
+                                        <li class="text-xs text-gray-950">Кто заказал: Сергей</li>
+                                        <li class="text-xs text-gray-950">Что заказал: Iphone 24 pro max</li>
+                                        <li class="text-xs text-gray-950">Когда заказал: 12.04.2002</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-col gap-2 w-1/2">
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex justify-between p-2 rounded bg-gray-200">
+                                <div class="w-2/5">
+                                    <ul>
+                                        <li class="text-xs text-gray-950">Кто заказал: Сергей</li>
+                                        <li class="text-xs text-gray-950">Что заказал: Iphone 24 pro max</li>
+                                        <li class="text-xs text-gray-950">Когда заказал: 12.04.2002</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-col gap-2 w-1/2">
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                    <button class="px-2 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none transition duration-300 text-xs">
+                                        Оправить уведомление
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <aside id="default-sidebar" class=" top-0 right-0 z-40 w-1/6 h-full transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+                    <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+                        <ul class="space-y-2 font-medium">
+                            <li>
+                                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                    <span class="ms-3">Панель управления</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                    <span class="flex-1 ms-3 whitespace-nowrap">Продукция</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                    <span class="flex-1 ms-3 whitespace-nowrap">Заказы</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
+        </main>
+        <footer class="bg-gray-800 text-white">
+            <div class="container mx-auto px-4 py-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold">О компании</h3>
+                        <ul class="mt-4 space-y-2">
+                            <li>Автосалон Люкс - ведущий дилер города</li>
+                            <li>Мы предлагаем широкий ассортимент автомобилей</li>
+                            <li>Наши контакты: info@autosalonlux.com</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Услуги</h3>
+                        <ul class="mt-4 space-y-2">
+                            <li>Покупка и продажа автомобилей</li>
+                            <li>Тест-драйв</li>
+                            <li>
+                                <a href="./profile.html">Личный кабинет</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Следите за нами</h3>
+                        <ul class="mt-4 space-y-2">
+                            <li>
+                                <a href="https://www.instagram.com/yourprofile" class="hover:underline">Instagram</a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/yourprofile" class="hover:underline">Facebook</a>
+                            </li>
+                            <li>
+                                <a href="https://www.twitter.com/yourprofile" class="hover:underline">Twitter</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <p>© 2024 Автосалон Люкс. Все права защищены.</p>
+                    <p>
+                        Разработано в
+                        <a href="https://yourprofilelink.com" class="text-blue-400 hover:underline">ВашеИмя</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

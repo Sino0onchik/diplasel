@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автосалон Люкс</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static './index.css' %}">
+    <style>
+        .sub-menu-items li {
+            cursor: pointer;
+        }
+
+        .sub-menu-items li:hover a::after {
+            background: #08a652;
+            width: 100%;
+        }
+
+        .sub-menu-items a {
+            position: relative;
+        }
+
+        .sub-menu-items a::after {
+            content: '';
+            position: relative;
+            display: block;
+            width: 32px;
+            height: 2px;
+            background: #000;
+            transition: all 0.3s;
+            margin-top: 12px;
+        }
+
+        .brands-wrapper a.brand-item {
+            position: relative;
+            display: block;
+            height: 100px;
+            text-decoration: none;
+            border-top: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            margin: 0 0 -1px;
+            padding: 1px 0 1px;
+        }
+
+        .brands-wrapper a.brand-item:hover .brand-name {
+            color: #1ab530;
+        }
+
+        .brands-wrapper a.brand-item .image-wrapper {
+            position: relative;
+            height: 72px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .brands-wrapper a.brand-item .brand-name {
+            text-align: center;
+            font-size: 13px;
+            color: #2c3136;
+        }
+
+        .brands-wrapper a.brand-item::before {
+            content: attr(data-count);
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            font-size: 11px;
+            color: #c0c5ca;
+        }
+
+        .item-image::before {
+            display: block;
+            position: absolute;
+            left: 5px;
+            font-family: "Gilroy", sans-serif;
+            font-weight: 600;
+            font-size: 8px;
+            text-transform: uppercase;
+            line-height: 18px;
+            padding: 0 7px;
+            border-radius: 2px;
+        }
+
+
+        .item-image::after {
+            display: block;
+            position: absolute;
+            left: 5px;
+            font-family: "Gilroy", sans-serif;
+            font-weight: 600;
+            font-size: 8px;
+            text-transform: uppercase;
+            line-height: 18px;
+            padding: 0 7px;
+            border-radius: 2px;
+        }
+
+        .item-image::before {
+            content: 'хит';
+            top: 5px;
+            background: #f20739;
+            color: #fff;
+        }
+
+        .item-image::after {
+            content: 'срочно';
+            top: 26px;
+            background: #ffea00;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body class="font-sans">
+<div class="bg-white">
+    <header class="absolute inset-x-0 top-0 z-50">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+                <div class="flex lg:flex-1">
+                    <a href="/" class="-m-1.5 p-1.5">
+                        <span class="sr-only">Your Company</span>
+                        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                             alt="">
+                    </a>
+                </div>
+                <div class="flex lg:hidden">
+                    <button type="button"
+                            class="button -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                             aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+                        </svg>
+                    </button>
+                </div>
+                <!-- navigation  -->
+                <div class="hidden lg:flex lg:gap-x-12">
+                    {% for i in categories %}
+                    <a style="font-size: 12px" href="/?category={{ i.pk }}" class="text-sm font-semibold leading-6 text-gray-900">{{ i.title }}</a>
+                    {% endfor %}
+                </div>
+
+            </nav>
+        </div>
+    </header>
+{% block content %}
+{% endblock %}
+    <footer class="bg-gray-800 text-white">
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-lg font-semibold">О компании</h3>
+                <ul class="mt-4 space-y-2">
+                    <li>Автосалон Люкс - ведущий дилер города</li>
+                    <li>Мы предлагаем широкий ассортимент автомобилей</li>
+                    <li>Наши контакты: info@autosalonlux.com</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold">Услуги</h3>
+                <ul class="mt-4 space-y-2">
+                    <li>Покупка и продажа автомобилей</li>
+                    <li>Тест-драйв</li>
+                    <li>
+                        <a href="./profile.html">Личный кабинет</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold">Следите за нами</h3>
+                <ul class="mt-4 space-y-2">
+                    <li>
+                        <a href="https://www.instagram.com/yourprofile" class="hover:underline">Instagram</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/yourprofile" class="hover:underline">Facebook</a>
+                    </li>
+                    <li>
+                        <a href="https://www.twitter.com/yourprofile" class="hover:underline">Twitter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-8 text-center">
+            <p>© 2024 Автосалон Люкс. Все права защищены.</p>
+            <p>
+                Разработано в
+                <a href="https://yourprofilelink.com" class="text-blue-400 hover:underline">ВашеИмя</a>
+            </p>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>

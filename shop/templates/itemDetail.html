@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="bg-gray-100 pt-24">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap flex-row-reverse -mx-4 py-4">
+            <!-- Блок с изображением -->
+            <div class="w-full lg:w-1/2 px-4 mb-4 lg:mb-0">
+                <img src="{{ car.images.first.images.url }}"
+                     alt="Автомобиль" class="rounded-lg shadow-lg">
+            </div>
+            <!-- Блок с описанием и кнопкой -->
+            <div class="w-full lg:w-1/2 px-6 flex flex-col">
+                <div class="mb-4">
+                    <h2 class="text-[22px] font-bold mb-2">{{ car.title }}</h2>
+                    <p class="text-sm font-medium mb-9">{{ car.year }} год</p>
+                    <div class="grid grid-cols-4 gap-5 mb-12">
+                        <div class="border border-[#c7cdd3] px-[13px] py-[15px] text-xs font-light rounded-[15px]">
+                            <img class="mb-4" src="/assets/engine.png" alt="">
+                            <div>{{ car.benz }} л. бензин</div>
+                            <div>{{ car.power }} л.с.</div>
+                        </div>
+                        <div class="border border-[#c7cdd3] px-[13px] py-[15px] text-xs font-light rounded-[15px]">
+                            <img class="mb-4" src="/assets/engine.png" alt="">
+                            <div>{{ car. }}</div>
+                            <div>привод</div>
+                        </div>
+                        <div class="border border-[#c7cdd3] px-[13px] py-[15px] text-xs font-light rounded-[15px]">
+                            <img class="mb-4" src="/assets/engine.png" alt="">
+                            <div>КПП</div>
+                            <div>{{ car.type }}</div>
+                        </div>
+                        <div class="border border-[#c7cdd3] px-[13px] py-[15px] text-xs font-light rounded-[15px]">
+                            <img class="mb-4" src="/assets/engine.png" alt="">
+                            <div>Расход</div>
+                            <div>{{ car.power }}л.</div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Характеристики</h3>
+                    <ul class="pl-5 mb-4 text-lg font-light text-[#2c3136]">
+                        <li class="flex justify-between">Мощность: <span>{{ car.power }} л.с.</span></li>
+                        <li class="flex justify-between">Год выпуска: <span>{{car.year}}</span></li>
+                        <li class="flex justify-between">Цвет: <span>{{ car.color }}</span></li>
+                        <li class="flex justify-between">Пробег: <span>{{ car.mileage }} км</span></li>
+                        <li class="flex justify-between">Руль: <span>{{ car.rule }}</span></li>
+                        <li class="flex justify-between">Поколение: <span>{{ car.generation }}</span></li>
+                    </ul>
+                    <p>
+                        {{ car.description }}
+                    </p>
+                </div>
+                <div class="mt-auto">
+                    <button class="bg-[#1ab530] text-white font-bold py-2 px-4 rounded">
+                        <a href="/basket.html">Оформить
+                            заказ</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold mb-6">Особенности автомобиля</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <ul class="list-disc list-inside">
+                    <p>{{ car.peculiarities }}</p>
+                    <!-- Добавьте дополнительные особенности здесь -->
+                </ul>
+                <!-- Пример для демонстрации, добавьте больше особенностей по аналогии -->
+            </div>
+        </div>
+    </section>
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold mb-6">Другие автомобили Lexus</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Пример карточки автомобиля -->
+                {% for i in another_cars %}
+                <div class="card bg-white pt-[15px] px-[15px] pb-7">
+                    <div class="item-image relative mb-4">
+                        <a href="">
+                            <img class="block w-full max-w-[252px] max-h-[190px]" src="{{ i.images.first.images.url }}"
+                                 alt="">
+                        </a>
+                    </div>
+                    <div class="item-name">
+                        <a class="text-[#2c3136] cursor-pointer hover:underline underline-offset-2" href="">{{ i.title }}</a>
+                    </div>
+                    <div class="item-price mb-2.5">
+                        <span class="text-[#2c3136] font-bold">{{ i.price }} $</span>
+                        <span class="inline-block ml-4 text-[#8f8f8f] text-sm">{{ i.price }} с</span>
+                    </div>
+                    <ul class="property-list flex justify-between items-center border-y border-[#dddddd] py-3">
+                        <li class="text-[13px]">{{ i.year }} г.</li>
+                        <li class="text-[13px]">{{ i.mileage }} км.</li>
+                        <li class="text-[13px]">{{ i.benz }} л.</li>
+                        <li class="text-[13px]">{{ i.power }} л.c.</li>
+                    </ul>
+                    <a href="/car/detail/{{ i.pk }}/" class="w-full block cursor-pointer mt-4 text-white text-center bg-[#1ab530] font-semibold leading-10 hover:bg-green-600 transition-colors">Подробнее</a>
+                </div>
+                {% endfor %}
+
+                <!-- Добавьте дополнительные карточки автомобилей аналогичным образом -->
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

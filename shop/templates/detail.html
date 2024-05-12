@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+</div>
+    <main class="pt-24 pb-24">
+        <section class="text-gray-600 body-font">
+            <div class="container px-5 pb-24 mx-auto flex flex-wrap">
+                <div class="lg:w-1/4 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
+                    <img src="{{ company.logo.url }}" alt="logo" class="object-contain h-full w-full bg-contain" />
+                </div>
+                <div class="lg:w-3/4 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{ company.title }}</h1>
+                    <div class="flex mb-4">
+                        <a class="flex-grow text-[#1ab530] border-b-2 border-[#1ab530] py-2 text-lg px-1">
+                            Информация о
+                            компании
+                        </a>
+                    </div>
+                    <p class="leading-relaxed mb-4">
+                        {{ company.description }}
+                    </p>
+                    <div class="flex flex-wrap mb-4">
+                        <a href="" type="" class="text-gray-500 inline-flex items-center lg:mr-3 mr-2">Телефон: +123 456 789</a>
+                        <a href="" type="" class="text-gray-500 inline-flex items-center lg:mr-3 mr-2">
+                            Email:
+                            {{ company.email }}
+                        </a>
+                        <a href="" type="" class="text-gray-500 inline-flex items-center lg:mr-3 mr-2">
+                            {{ company.address }}
+                        </a>
+                    </div>
+                    <button
+                        class="inline-flex text-white bg-[#1ab530] border-0 py-2 px-6 focus:outline-none hover:bg-green-500 transition-colors rounded text-lg">
+                        Связаться
+                        с диллером
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="py-12 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h3 class="text-2xl font-bold mb-6">Наши автомобили</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Пример карточки автомобиля -->
+                    {% for i in company.cars.all %}
+                    <div class="card bg-white pt-[15px] px-[15px] pb-7">
+                        <div class="item-image relative mb-4">
+                            <a href="/car/detail/{{ i.pk }}/">
+                                <img class="block w-full max-w-[252px] max-h-[190px]" src="{{ i.images.first.images.url }}"
+                                     alt="">
+                            </a>
+                        </div>
+                        <div class="item-name">
+                            <a class="text-[#2c3136] cursor-pointer hover:underline underline-offset-2" href="">Lexus GX</a>
+                        </div>
+                        <div class="item-price mb-2.5">
+                            <span class="text-[#2c3136] font-bold">{{ i.price }} $</span>
+                            <span class="inline-block ml-4 text-[#8f8f8f] text-sm">{{ i.price }} с</span>
+                        </div>
+                        <ul class="property-list flex justify-between items-center border-y border-[#dddddd] py-3">
+                            <li class="text-[13px]">{{ i.year }} г.</li>
+                            <li class="text-[13px]">{{ i.mileage }} км.</li>
+                            <li class="text-[13px]">{{ i.benz }} л.</li>
+                            <li class="text-[13px]">{{ i.power }} л.c.</li>
+                        </ul>
+                        <a href="/car/detail/{{ i.pk }}/" class="w-full block cursor-pointer mt-4 text-white text-center bg-[#1ab530] font-semibold leading-10 hover:bg-green-600 transition-colors">Подробнее</a>
+                    </div>
+                    {% endfor %}
+                    <!-- Добавьте дополнительные карточки автомобилей аналогичным образом -->
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
