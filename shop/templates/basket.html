@@ -1,97 +1,32 @@
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Корзина покупок</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-
-<body class="bg-gray-100 flex flex-col min-h-screen">
-<div class="bg-white">
-    <header class="absolute inset-x-0 top-0 z-50">
-        <div class="container mx-auto px-4">
-            <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div class="flex lg:flex-1">
-                    <a href="#" class="-m-1.5 p-1.5">
-                        <span class="sr-only">Your Company</span>
-                        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                             alt="">
-                    </a>
-                </div>
-                <div class="flex lg:hidden">
-                    <button type="button"
-                            class="button -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                             aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
-                        </svg>
-                    </button>
-                </div>
-                <!-- navigation  -->
-                <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Product</a>
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
-                </div>
-                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
-                            aria-hidden="true">&rarr;</span></a>
-                </div>
-            </nav>
-        </div>
-    </header>
-</div>
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_filters %}
+{% block content %}
 <div class="container mx-auto mt-10 flex-1">
     <div class="flex shadow-md bg-white my-20">
         <!-- application form for the purchase of a car -->
         <div class="w-full px-10 py-10">
-            <form action="">
-                <div class="flex flex-col mb-5">
-                    <label for="name" class="mb-1 text-xs sm:text-sm">Имя</label>
-                    <input type="text" id="name" placeholder="Ваше имя"
-                           class="border rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500">
-                </div>
+            <form action="" method="POST">
                 <div class="flex flex-col mb-5">
                     <label for="phone" class="mb-1 text-xs sm:text-sm">Телефон</label>
-                    <input type="tel" id="phone" placeholder="Ваш телефон"
+                    <input type="tel" name="phone_number" id="phone" placeholder="Ваш телефон"
                            class="border rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500">
                 </div>
                 <div class="flex flex-col mb-5">
                     <label for="email" class="mb-1 text-xs sm:text-sm">E-mail</label>
-                    <input type="email" id="email" placeholder="Ваш E-mail"
+                    <input type="email" name="email" id="email" placeholder="Ваш E-mail"
                            class="border rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500">
                 </div>
+                {% csrf_token %}
                 <div class="flex flex-col mb-5">
                     <label for="name" class="mb-1 text-xs sm:text-sm">Сообщение</label>
-                    <textarea type="text" id="message" placeholder="Ваше сообщение"
+                    <textarea type="text" name="comment" id="message" placeholder="Ваше сообщение"
                               class="border rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500"></textarea>
                 </div>
-                <button class="block bg-green-500 text-white px-5 py-5 w-full">Отправить</button>
+                <button type="submit" class="block bg-green-500 text-white px-5 py-5 w-full">Отправить</button>
             </form>
         </div>
 
     </div>
 </div>
-<footer class="bg-gray-800 text-white py-8">
-    <div class="container mx-auto flex justify-between items-center">
-        <div>
-            <p>&copy; 2024 Ваш бренд. Все права защищены.</p>
-        </div>
-        <div class="flex gap-4">
-            <a href="#" class="hover:text-blue-400 transition duration-300 ease-in-out">Instagram</a>
-            <a href="#" class="hover:text-blue-400 transition duration-300 ease-in-out">Facebook</a>
-            <a href="#" class="hover:text-blue-400 transition duration-300 ease-in-out">Twitter</a>
-        </div>
-        <div>
-            <p>Контакт: info@yourbrand.com</p>
-        </div>
-    </div>
-</footer>
-</body>
-
-</html>
+{% endblock  %}

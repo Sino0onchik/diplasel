@@ -72,18 +72,33 @@ class CarImages(models.Model):
 
 
 class Order(models.Model):
-    car = models.ForeignKey(Car, on_delete=models.SET_NULL, null=True, related_name='orders')
-    email = models.EmailField()
+    car = models.ForeignKey(Car, on_delete=models.SET_NULL, null=True, related_name='orders', blank=True)
+    email = models.CharField(max_length=123)
     phone_number = models.CharField(max_length=200)
     comment = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.car.title} - {self.pk}'
+        return f'{self.car.title} - {self.email}'
 
     class Meta:
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
 
+
+class SiteContent(models.Model):
+    original_text = models.TextField(verbose_name="Оригинальный текст",
+                                     help_text="Оригинальный текст, который отображается на сайте.",
+                                     max_length=20000
+                                     )
+    current_text = models.TextField(
+        verbose_name="Текущий текст",
+        help_text="Измененный или текущий текст, который отображается на сайте.",
+        max_length=20000
+    )
+
+    class Meta:
+        verbose_name = "Текст на сайте"
+        verbose_name_plural = "Текста в сайте"
 
 

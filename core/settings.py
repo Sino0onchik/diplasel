@@ -43,8 +43,40 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shop',
+    'explorer',
 ]
 
+EXPLORER_CONNECTIONS = {'Default': 'default'}
+EXPLORER_DEFAULT_CONNECTION = 'default'
+
+# Ограничение на максимальное количество строк в результатах запроса
+EXPLORER_DATA_EXPORTERS = [
+    ('csv', 'explorer.exporters.CSVExporter'),
+    ('json', 'explorer.exporters.JSONExporter'),
+    ('excel', 'explorer.exporters.ExcelExporter'),
+]
+
+# Разрешить выполнение SQL-запросов с такими командами, как INSERT, UPDATE, DELETE
+EXPLORER_SQL_BLACKLIST = ['ALTER', 'DROP', 'TRUNCATE', 'DELETE', 'INSERT', 'UPDATE']
+
+# Если вы хотите отключить черный список, установите его в пустой список
+# EXPLORER_SQL_BLACKLIST = []
+
+# Лимит на количество строк в результатах запроса
+EXPLORER_QUERY_LIMIT = 1000
+
+# Настройки кеширования
+# EXPLORER_TASKS_ENABLED = True
+# EXPLORER_ASYNC_SCHEMA = True
+
+# Безопасность: Разрешить доступ только суперпользователям (по умолчанию True)
+EXPLORER_REQUIRE_LOGIN = True
+
+# Логирование всех выполненных запросов
+EXPLORER_LOG_QUERIES = True
+
+# Ограничение на время выполнения запросов в секундах
+EXPLORER_QUERY_TIMEOUT_MS = 60000
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -122,13 +154,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
 
 LOGIN_REDIRECT_URL = '/'
 
 # Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
