@@ -64,7 +64,7 @@ class CarImages(models.Model):
     images = models.ImageField(upload_to='images/%Y/%m/')
 
     def __str__(self):
-        return f'{self.product.title} - {self.pk}'
+        return f'{self.product} - {self.pk}'
 
     class Meta:
         verbose_name = 'Фотка машины'
