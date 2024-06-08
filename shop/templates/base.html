@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 {% load static %}
+{% load custom_filters %}
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Автосалон Люкс</title>
+    <title>{% get_or_create_content 'Автосалон Люкс' %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{% static './index.css' %}">
     <style>
@@ -122,7 +123,7 @@
             <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div class="flex lg:flex-1">
                     <a href="/" class="-m-1.5 p-1.5">
-                        <span class="sr-only">Your Company</span>
+                        <span class="sr-only">{% get_or_create_content 'Your Company' %}</span>
                         <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                              alt="">
                     </a>
@@ -130,7 +131,7 @@
                 <div class="flex lg:hidden">
                     <button type="button"
                             class="button -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-                        <span class="sr-only">Open main menu</span>
+                        <span class="sr-only">{% get_or_create_content 'Open main menu' %}</span>
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                              aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -154,20 +155,20 @@
     <div class="container mx-auto px-4 py-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-                <h3 class="text-lg font-semibold">О компании</h3>
+                <h3 class="text-lg font-semibold">{% get_or_create_content 'О компании' %}</h3>
                 <ul class="mt-4 space-y-2">
-                    <li>Автосалон Люкс - ведущий дилер города</li>
-                    <li>Мы предлагаем широкий ассортимент автомобилей</li>
-                    <li>Наши контакты: info@autosalonlux.com</li>
+                    <li>{% get_or_create_content 'Автосалон Люкс - ведущий дилер города' %}</li>
+                    <li>{% get_or_create_content 'Мы предлагаем широкий ассортимент автомобилей' %}</li>
+                    <li>{% get_or_create_content 'Наши контакты: info@autosalonlux.com' %}</li>
                 </ul>
             </div>
             <div>
                 <h3 class="text-lg font-semibold">Услуги</h3>
                 <ul class="mt-4 space-y-2">
-                    <li>Покупка и продажа автомобилей</li>
-                    <li>Тест-драйв</li>
+                    <li>{% get_or_create_content 'Покупка и продажа автомобилей' %}</li>
+                    <li>{% get_or_create_content 'Тест-драйв' %}</li>
                     <li>
-                        <a href="./profile.html">Личный кабинет</a>
+                        <a href="">{% get_or_create_content 'Личный кабинет' %}</a>
                     </li>
                 </ul>
             </div>
@@ -175,23 +176,20 @@
                 <h3 class="text-lg font-semibold">Следите за нами</h3>
                 <ul class="mt-4 space-y-2">
                     <li>
-                        <a href="https://www.instagram.com/yourprofile" class="hover:underline">Instagram</a>
+                        <a href="" class="hover:underline">Instagram</a>
                     </li>
                     <li>
-                        <a href="https://www.facebook.com/yourprofile" class="hover:underline">Facebook</a>
+                        <a href="" class="hover:underline">Facebook</a>
                     </li>
                     <li>
-                        <a href="https://www.twitter.com/yourprofile" class="hover:underline">Twitter</a>
+                        <a href="" class="hover:underline">Twitter</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="mt-8 text-center">
-            <p>© 2024 Автосалон Люкс. Все права защищены.</p>
-            <p>
-                Разработано в
-                <a href="https://yourprofilelink.com" class="text-blue-400 hover:underline">ВашеИмя</a>
-            </p>
+            <p>{% get_or_create_content '© 2024 Автосалон Люкс. Все права защищены.' %}</p>
+
         </div>
     </div>
 </footer>

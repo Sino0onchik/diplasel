@@ -21,13 +21,13 @@
                         </div>
                         <div class="border border-[#c7cdd3] px-[13px] py-[15px] text-xs font-light rounded-[15px]">
                             <img class="mb-4" src="/assets/engine.png" alt="">
-                            <div>{{ car. }}</div>
+                            <div>{{ car.type }}</div>
                             <div>привод</div>
                         </div>
                         <div class="border border-[#c7cdd3] px-[13px] py-[15px] text-xs font-light rounded-[15px]">
                             <img class="mb-4" src="/assets/engine.png" alt="">
                             <div>КПП</div>
-                            <div>{{ car.type }}</div>
+                            <div>{{ car.сonsumption }}</div>
                         </div>
                         <div class="border border-[#c7cdd3] px-[13px] py-[15px] text-xs font-light rounded-[15px]">
                             <img class="mb-4" src="/assets/engine.png" alt="">
@@ -50,7 +50,7 @@
                 </div>
                 <div class="mt-auto">
                     <button class="bg-[#1ab530] text-white font-bold py-2 px-4 rounded">
-                        <a href="/basket.html">Оформить
+                        <a href="/order/create/{{ car.pk }}">Оформить
                             заказ</a>
                     </button>
                 </div>
